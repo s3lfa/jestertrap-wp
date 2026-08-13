@@ -153,6 +153,3 @@ wp-honeypot/
 
 MIT — use it, modify it, deploy it. Attribution appreciated but not required.
 
-## Credits
-
-Built for [JesterTrap](https://github.com/youruser) — a self-hosted threat intelligence platform.
