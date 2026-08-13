@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/themes/
+Disallow: /wp-content/uploads/
+Disallow: /xmlrpc.php
+Disallow: /wp-comments-post.php
+Disallow: /wp-trackback.php
+Disallow: /*.php$
+Disallow: /*.inc$
+Disallow: /*.gz$
+Allow: /wp-content/uploads/
+
+Sitemap: http://your-domain.com/sitemap.xml
