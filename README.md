@@ -153,3 +153,7 @@ wp-honeypot/
 
 MIT — use it, modify it, deploy it. Attribution appreciated but not required.
 
+---
+
+*Crafted by a sysadmin, with a little help from AI. The attack patterns, honeypot logic, and WordPress simulation are all hand-designed — AI just helped with the boilerplate.*
+
