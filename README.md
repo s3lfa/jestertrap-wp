@@ -76,8 +76,8 @@ Each attack is logged with severity level (critical/high/medium/low), pattern ma
 
 4. Copy the Nginx config (adjust as needed):
    ```bash
-   sudo cp nginx.conf /etc/nginx/sites-available/wp-honeypot
-   sudo ln -s /etc/nginx/sites-available/wp-honeypot /etc/nginx/sites-enabled/
+   sudo cp nginx.conf /etc/nginx/sites-available/jestertrap-wp
+   sudo ln -s /etc/nginx/sites-available/jestertrap-wp /etc/nginx/sites-enabled/
    sudo nginx -t && sudo systemctl reload nginx
    ```
 
@@ -95,7 +95,7 @@ python3 extract-cases.py
 ## File Structure
 
 ```
-wp-honeypot/
+jestertrap-wp/
 ├── index.php                    # Main site (fake WordPress homepage)
 ├── wp-login.php                 # Fake login page
 ├── xmlrpc.php                   # Fake XML-RPC server
@@ -115,12 +115,16 @@ wp-honeypot/
 │   ├── index.php                # Fake admin dashboard
 │   ├── admin-ajax.php           # Fake AJAX handler
 │   ├── setup-config.php         # Fake setup wizard
+│   ├── login.min.css            # WordPress login styles
 │   └── css/
-│       └── login.min.css        # WordPress login styles
+│       └── login.min.css        # Login styles (duplicate)
+├── feed/
+│   └── index.php                # Fake RSS feed
 ├── wp-content/
 │   ├── themes/twentytwentyfour/
 │   │   └── style.css            # Fake theme
 │   └── plugins/                 # Fake plugin directories
+│       ├── index.php
 │       ├── akismet/index.php
 │       ├── contact-form-7/index.php
 │       ├── duplicator/index.php

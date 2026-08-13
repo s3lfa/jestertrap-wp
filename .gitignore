@@ -1,7 +1,6 @@
 # Logs may contain sensitive data from attackers
-logs/
-*.json
-*.json.gz
+logs/*.json
+logs/*.json.gz
 
 # Keep directory structure
 !logs/.gitkeep
