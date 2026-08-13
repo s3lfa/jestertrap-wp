@@ -53,8 +53,8 @@ Each attack is logged with severity level (critical/high/medium/low), pattern ma
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/youruser/wp-honeypot.git
-   cd wp-honeypot
+   git clone https://github.com/s3lfa/jestertrap-wp.git
+   cd jestertrap-wp
    ```
 
 2. Copy files to your web root:
