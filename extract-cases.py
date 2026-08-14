@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Extrae sesiones interesantes del honeypot y las envía a your-server como JSON.
+"""Extrae sesiones interesantes del honeypot y las envía a un servidor externo como JSON.
 Solo extrae TEXTO (comandos, logs HTTP, user-agents). NUNCA binarios ni malware."""
 import json, os, sys
 from collections import defaultdict
 from datetime import datetime, timedelta
 import urllib.request
 
-SHOGUN_URL = os.environ.get("HONEYPOT_SYNC_URL", "https://your-server.example.com/api/cases")
-SHOGUN_TOKEN = os.environ.get("HONEYPOT_SYNC_TOKEN", "your-token-here")
+SYNC_URL = os.environ.get("HONEYPOT_SYNC_URL", "https://your-server.example.com/api/cases")
+SYNC_TOKEN = os.environ.get("HONEYPOT_SYNC_TOKEN", "your-token-here")
 
 def extract_cowrie_sessions():
     """Extrae sesiones de Cowrie con login success + comandos."""
@@ -130,12 +130,12 @@ def extract_wp_attacks():
     return cases
 
 def send_cases(cases):
-    """Envía casos a your-server."""
+    """Envía casos al servidor configurado."""
     if not cases:
         print("No cases to send")
         return
-    data = json.dumps({"cases": cases, "token": SHOGUN_TOKEN}).encode()
-    req = urllib.request.Request(SHOGUN_URL, data=data,
+    data = json.dumps({"cases": cases, "token": SYNC_TOKEN}).encode()
+    req = urllib.request.Request(SYNC_URL, data=data,
                                  headers={"Content-Type": "application/json"})
     try:
         resp = urllib.request.urlopen(req, timeout=30)
