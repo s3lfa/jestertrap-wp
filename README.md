@@ -84,7 +84,12 @@ Each attack is logged with severity level (critical/high/medium/low), pattern ma
 5. Make sure the server is exposed on port 80 (the honeypot port). **Do not run a real website on the same port.**
 
 ### Optional: Case Extraction
-`extract-cases.py` can extract interesting attack sessions and send them to an external API for analysis:
+`extract-cases.py` can extract interesting attack sessions and send them to an external API for analysis. It supports two data sources:
+
+- **WordPress honeypot** (this project) — extracts suspicious HTTP requests from nginx access logs
+- **Cowrie SSH honeypot** ([cowrie](https://github.com/cowrie/cowrie)) — extracts SSH sessions with login attempts and commands
+
+> **Note:** The Cowrie integration is optional. This script was developed and tested alongside a [Cowrie](https://github.com/cowrie/cowrie) SSH honeypot deployed on the same server. If you don't have Cowrie installed, the script will simply skip the SSH section and only extract WordPress attacks.
 
 ```bash
 export HONEYPOT_SYNC_URL="https://your-server.example.com/api/cases"
